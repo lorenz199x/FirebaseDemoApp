@@ -79,7 +79,6 @@ class HeroAdapter(val mCtx: Context, val layoutResId: Int, val heroList: List<He
 
     fun showDeleteDialog(hero: Hero) {
         val dbHero = FirebaseDatabase.getInstance().getReference("heroes")
-//        val hero = Hero(hero.id, name, ratingBar.rating.toInt())
         dbHero.child(hero.id!!).removeValue()
         Toast.makeText(mCtx, "Hero Deleted", Toast.LENGTH_SHORT).show()
     }
