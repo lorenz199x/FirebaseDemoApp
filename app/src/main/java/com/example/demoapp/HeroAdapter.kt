@@ -39,6 +39,7 @@ class HeroAdapter(val mCtx: Context, val layoutResId: Int, val heroList: List<He
     fun showUpdateDialog(hero: Hero) {
         val builder = AlertDialog.Builder(mCtx)
         builder.setTitle("Update Hero")
+        
         //create layout
         val inflater = LayoutInflater.from(mCtx)
         val view = inflater.inflate(R.layout.layout_update_hero, null)
