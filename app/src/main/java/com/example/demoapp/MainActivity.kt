@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
                     //display list view
                     // get heroes xml and display list
-                    val adapter = HeroAdapter(applicationContext, R.layout.heroes, heroList)
+                    val adapter = HeroAdapter(this@MainActivity, R.layout.heroes, heroList)
                     listView.adapter = adapter
                 }
             }
@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         val heroId = ref.push().key
-        val hero = Hero(heroId, name, ratingBar.numStars)
+        // change numstars to rating.toInt
+        val hero = Hero(heroId, name, ratingBar.rating.toInt())
         ref.child(heroId!!).setValue(hero).addOnCompleteListener {
             Toast.makeText(applicationContext, "Hero saved success", Toast.LENGTH_LONG).show()
         }

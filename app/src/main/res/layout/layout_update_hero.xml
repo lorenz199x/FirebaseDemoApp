@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="24dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
     <EditText
             android:layout_width="match_parent"
@@ -20,11 +18,5 @@
             android:stepSize="1"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar"/>
-    <Button
-            android:text="Save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/buttonSave"/>
-    <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/listView"/>
+
 </LinearLayout>
