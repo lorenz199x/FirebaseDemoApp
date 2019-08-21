@@ -24,6 +24,8 @@ class HeroAdapter(val mCtx: Context, val layoutResId: Int, val heroList: List<He
         // get textView
         val textViewName = view.findViewById<TextView>(R.id.textViewName)
         val textViewUpdate = view.findViewById<TextView>(R.id.textViewUpdate)
+        val textViewDelete = view.findViewById<TextView>(R.id.textViewDelete)
+
         //get hero name
         val hero = heroList[position]
         textViewName.text = hero.name
@@ -31,6 +33,10 @@ class HeroAdapter(val mCtx: Context, val layoutResId: Int, val heroList: List<He
         textViewUpdate.setOnClickListener {
             //call method
             showUpdateDialog(hero)
+        }
+
+        textViewDelete.setOnClickListener {
+            showDeleteDialog(hero)
         }
 
         return view;
@@ -69,5 +75,12 @@ class HeroAdapter(val mCtx: Context, val layoutResId: Int, val heroList: List<He
 
         val alert = builder.create()
         alert.show()
+    }
+
+    fun showDeleteDialog(hero: Hero) {
+        val dbHero = FirebaseDatabase.getInstance().getReference("heroes")
+//        val hero = Hero(hero.id, name, ratingBar.rating.toInt())
+        dbHero.child(hero.id!!).removeValue()
+        Toast.makeText(mCtx, "Hero Deleted", Toast.LENGTH_SHORT).show()
     }
 }
